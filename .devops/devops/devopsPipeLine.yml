@@ -19,8 +19,8 @@ steps:
   displayName: 'Run a multi-line script'
   
   # Questa, va a compilare il progetto in modalità release
-  - task: VSBuild@1
-    inputs:
-      solution: '$(System.DefaultWorkingDirectory)/${{ parameters.baseFolder }}/${{ parameters.codeFolder }}/*.csproj'
-      configuration: 'Release'
-      clean: true
+  # - task: VSBuild@1
+  #   inputs:
+  #     solution: '$(System.DefaultWorkingDirectory)/${{ parameters.baseFolder }}/${{ parameters.codeFolder }}/*.csproj'
+  #     configuration: 'Release'
+  #     clean: true
