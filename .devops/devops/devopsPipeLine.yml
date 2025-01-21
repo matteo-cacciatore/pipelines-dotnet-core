@@ -12,14 +12,15 @@ pool:
 steps:
   - script: echo Hello, world!
     displayName: 'Run a one-line script'
+  
+  - script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+  
   # Questa, va a compilare il progetto in modalità release
   - task: VSBuild@1
     inputs:
       solution: '$(System.DefaultWorkingDirectory)/${{ parameters.baseFolder }}/${{ parameters.codeFolder }}/*.csproj'
       configuration: 'Release'
       clean: true
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
