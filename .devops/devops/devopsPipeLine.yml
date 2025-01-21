@@ -11,7 +11,9 @@ pool:
 
 steps:
   # Questa, va a compilare il progetto in modalità release
-  - template: _templates/steps/vs-build.yml
-    parameters:
-      baseFolder: ../../
-      codeFolder: ../
+  - task: VSBuild@1
+    displayName: VisualStudio compile
+    inputs:
+    solution: '$(System.DefaultWorkingDirectory)/*.csproj'
+    configuration: 'Release'
+    clean: true
