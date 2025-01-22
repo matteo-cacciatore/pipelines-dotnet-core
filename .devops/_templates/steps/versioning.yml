@@ -1,0 +1,25 @@
+# stages:
+#   - stage: Versioning
+#     displayName: Versioning stage
+#     jobs:
+#       - job: CreateVersion
+#         displayName: Create semantic version
+steps:
+  - checkout: self
+    displayName: Checkout
+    fetchDepth: '0'
+    
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '5.x'
+    displayName: Install dotnet 5.x
+
+  - task: gitversion/setup@1
+    inputs:
+      versionSpec: '5.x'
+    displayName: Setup GitVersion
+
+  - task: gitversion/execute@1
+    name: gitversion
+    displayName: Execute gitVersion

@@ -2,17 +2,20 @@
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
+ 
+variables:
+  baseFolder: Integration/WebService_FrontEnd
+  codeFolder: WEBSERVICE/Adesioni/Reply.GRM.AdesioniServiceData.WebUI
+  webAppName: Adesioni
 
 trigger:
 - devops
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
 
 stages:
 - stage: Build
   jobs:
   - job: Buildjob
-    displayName: 'Job di building'
-    steps:
-    - script: echo Hello World!
+    - template: ../../_templates/steps/versioning.yml
