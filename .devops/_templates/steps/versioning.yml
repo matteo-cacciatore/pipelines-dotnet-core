@@ -1,9 +1,4 @@
-# stages:
-#   - stage: Versioning
-#     displayName: Versioning stage
-#     jobs:
-#       - job: CreateVersion
-#         displayName: Create semantic version
+
 steps:
   - checkout: self
     displayName: Checkout

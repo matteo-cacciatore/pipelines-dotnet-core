@@ -9,10 +9,10 @@ stages:
   jobs:
     - job: Installazione
       steps:
-        - template: ../../_templates/steps/versioning.yml
+        - template: ../_templates/steps/versioning.yml
     - job: Build Progetto
       steps:
-        - template: ../../_templates/steps/vs-build.yml
+        - template: ../_templates/steps/vs-build.yml
     - job: Creazione artefatto
       steps:
-        - template: ../../_templates/steps/create-artifact.yml
+        - template: ../_templates/steps/create-artifact.yml
