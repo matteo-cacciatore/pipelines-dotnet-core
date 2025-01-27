@@ -7,6 +7,6 @@ steps:
   - task: UseDotNet@2
     inputs:
       packageType: 'sdk'
-      version: '5.x'
+      version: '6.x'
       installationPath: $(Agent.ToolsDirectory)/dotnet
-    displayName: Install dotnet 5.x
+    displayName: Install dotnet 6.x
