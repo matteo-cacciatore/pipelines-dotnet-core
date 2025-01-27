@@ -19,3 +19,5 @@ stages:
     - job: Creazione artefatto
       steps:
         - template: ../_templates/steps/create-artifact.yml
+          parameters:
+            archiveFolder: ginoPasticcino

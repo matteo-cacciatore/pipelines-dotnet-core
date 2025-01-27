@@ -1,9 +1,6 @@
 parameters:
   - name: archiveFolder
     type: string
-  - name: archiveFolder
-    type: string
-
 
 steps:
   - task: CopyFiles@2
@@ -21,5 +18,5 @@ steps:
       rootFolderOrFile: $(CHECKPARAM.ROOT_FOLDER)
       includeRootFolder: true
       archiveType: zip
-      archiveFile: $(Build.ArtifactStagingDirectory)/${{ parameters.baseFolder }}/${{ parameters.codeFolder }}/${{ parameters.artifactName }}.zip
+      archiveFile: $(Build.ArtifactStagingDirectory)/${{ parameters.artifactName }}.zip
       replaceExistingArchive: true
