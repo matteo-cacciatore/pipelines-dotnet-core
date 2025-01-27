@@ -18,5 +18,5 @@ steps:
       rootFolderOrFile: $(CHECKPARAM.ROOT_FOLDER)
       includeRootFolder: true
       archiveType: zip
-      archiveFile: $(Build.ArtifactStagingDirectory)/${{ parameters.artifactName }}.zip
+      archiveFile: $(Build.ArtifactStagingDirectory)/${{ parameters.archiveFolder }}.zip
       replaceExistingArchive: true
