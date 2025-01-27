@@ -15,7 +15,6 @@ steps:
   - task: ArchiveFiles@2
     displayName: Zip creation
     inputs:
-      rootFolderOrFile: $(CHECKPARAM.ROOT_FOLDER)
       includeRootFolder: true
       archiveType: zip
       archiveFile: $(Build.ArtifactStagingDirectory)/${{ parameters.archiveFolder }}.zip
