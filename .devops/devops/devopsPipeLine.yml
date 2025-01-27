@@ -8,8 +8,11 @@ stages:
 - stage: Build
   jobs:
     - job: Installazione
-      - template: ../../_templates/steps/versioning.yml
+      steps:
+        - template: ../../_templates/steps/versioning.yml
     - job: Build Progetto
-      - template: ../../_templates/steps/vs-build.yml
+      steps:
+        - template: ../../_templates/steps/vs-build.yml
     - job: Creazione artefatto
-      - template: ../../_templates/steps/create-artifact.yml
+      steps:
+        - template: ../../_templates/steps/create-artifact.yml
