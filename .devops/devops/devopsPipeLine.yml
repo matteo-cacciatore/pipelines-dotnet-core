@@ -5,16 +5,17 @@ pool:
   vmImage: windows-latest
 
 stages:
-  jobs:
-    - job: Build
-      - steps:
-        - template: ../_templates/steps/versioning.yml
+  - stage: BuildCreate
+    jobs:
+      - job: Build
+        - steps:
+          - template: ../_templates/steps/versioning.yml
 
-        - template: ../_templates/steps/vs-build.yml
-          parameters:
-            baseFolder: ../**
-            codeFolder: ../**
+          - template: ../_templates/steps/vs-build.yml
+            parameters:
+              baseFolder: ../**
+              codeFolder: ../**
 
-        - template: ../_templates/steps/create-artifact.yml
-          parameters:
-            archiveFolder: ginoPasticcino
+          - template: ../_templates/steps/create-artifact.yml
+            parameters:
+              archiveFolder: ginoPasticcino
