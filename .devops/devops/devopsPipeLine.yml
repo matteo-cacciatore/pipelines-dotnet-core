@@ -1,13 +1,3 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
- 
-variables:
-  baseFolder: Integration/WebService_FrontEnd
-  codeFolder: WEBSERVICE/Adesioni/Reply.GRM.AdesioniServiceData.WebUI
-  webAppName: Adesioni
-
 trigger:
 - devops
 
@@ -17,5 +7,9 @@ pool:
 stages:
 - stage: Build
   jobs:
-  - job: Buildjob
+  - job: Installazione
     - template: ../../_templates/steps/versioning.yml
+  - job: Build Progetto
+    - template: ../../_templates/steps/vs-build.yml
+  - job: Creazione artefatto
+    - template: ../../_templates/steps/create-artifact.yml

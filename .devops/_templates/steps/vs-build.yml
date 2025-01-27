@@ -6,9 +6,5 @@ parameters:
 
 steps:
   # Questa, va a compilare il progetto in modalità release
-  - task: VSBuild@1
-  displayName: VisualStudio compile
-  inputs:
-    solution: '$(System.DefaultWorkingDirectory)/${{ parameters.baseFolder }}/${{ parameters.codeFolder }}/*.csproj'
-    configuration: 'Release'
-    clean: true
+  - script: dotnet build --configuration Release
+    displayName: 'Build project'

@@ -1,0 +1,25 @@
+parameters:
+  - name: archiveFolder
+    type: string
+  - name: archiveFolder
+    type: string
+
+
+steps:
+  - task: CopyFiles@2
+    displayName: Temporary folder creation
+    # condition: ${{ ne(parameters.tempFolder, '')}}
+    inputs:
+      # SourceFolder: $(CHECKPARAM_SOURCE_FOLDER)
+      Contents: '**'
+      TargetFolder: $(System.DefaultWorkingDirectory)/tempFolder
+      OverWrite: true
+
+  - task: ArchiveFiles@2
+    displayName: Zip creation
+    inputs:
+      rootFolderOrFile: $(CHECKPARAM.ROOT_FOLDER)
+      includeRootFolder: true
+      archiveType: zip
+      archiveFile: $(Build.ArtifactStagingDirectory)/${{ parameters.baseFolder }}/${{ parameters.codeFolder }}/${{ parameters.artifactName }}.zip
+      replaceExistingArchive: true

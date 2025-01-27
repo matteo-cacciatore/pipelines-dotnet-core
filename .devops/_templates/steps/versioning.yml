@@ -13,13 +13,5 @@ steps:
     inputs:
       packageType: 'sdk'
       version: '5.x'
+      installationPath: $(Agent.ToolsDirectory)/dotnet
     displayName: Install dotnet 5.x
-
-  - task: gitversion/setup@1
-    inputs:
-      versionSpec: '5.x'
-    displayName: Setup GitVersion
-
-  - task: gitversion/execute@1
-    name: gitversion
-    displayName: Execute gitVersion
