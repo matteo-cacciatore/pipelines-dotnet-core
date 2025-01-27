@@ -8,7 +8,7 @@ stages:
   - stage: BuildCreate
     jobs:
       - job: Build
-        - steps:
+        steps:
           - template: ../_templates/steps/versioning.yml
 
           - template: ../_templates/steps/vs-build.yml
