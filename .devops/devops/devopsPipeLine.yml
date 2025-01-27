@@ -13,6 +13,9 @@ stages:
     - job: Build Progetto
       steps:
         - template: ../_templates/steps/vs-build.yml
+          parameters:
+            baseFolder: ../**
+            codeFolder: ../**
     - job: Creazione artefatto
       steps:
         - template: ../_templates/steps/create-artifact.yml
