@@ -7,9 +7,9 @@ pool:
 stages:
 - stage: Build
   jobs:
-  - job: Installazione
+    - job: Installazione
       - template: ../../_templates/steps/versioning.yml
-  - job: Build Progetto
+    - job: Build Progetto
       - template: ../../_templates/steps/vs-build.yml
-  - job: Creazione artefatto
+    - job: Creazione artefatto
       - template: ../../_templates/steps/create-artifact.yml
