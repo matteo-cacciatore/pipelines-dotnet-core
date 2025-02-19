@@ -22,8 +22,8 @@ steps:
       command: 'restore'
       restoreSolution: '**/${{ parameters.baseFolder }}/*.sln'
       feedsToUse: 'config'
-      nugetConfigPath: '${{ parameters.baseFolder }}/NuGet.Config'
-      restoreDirectory: '${{ parameters.baseFolder }}/packages'    
+      nugetConfigPath: '$(System.DefaultWorkingDirectory)/${{ parameters.baseFolder }}/NuGet.Config'
+      restoreDirectory: '$(System.DefaultWorkingDirectory)/${{ parameters.baseFolder }}/packages'    
   
   - task: Bash@3
     displayName: List all files
@@ -35,6 +35,6 @@ steps:
 
   - task: VSBuild@1
     inputs:
-      solution: '${{ parameters.baseFolder }}/*.csproj'
+      solution: '$(System.DefaultWorkingDirectory)/${{ parameters.baseFolder }}/${{ parameters.codeFolder }}/*.csproj'
       configuration: 'Release'
       clean: true
