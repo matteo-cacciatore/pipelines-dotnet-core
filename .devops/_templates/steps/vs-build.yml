@@ -9,12 +9,21 @@ steps:
   # - script: dotnet build --configuration Release
   #   displayName: 'Build project'
   - task: Bash@3
-    displayName: Extract Artifact Filename
+    displayName: List all files
     name: GetArtifact
     inputs:
       targetType: inline
       script: |
         ls -al
+
+  - task: NuGetCommand@2
+    displayName: NuGet restore
+    inputs:
+      command: 'restore'
+      restoreSolution: '**/${{ parameters.baseFolder }}/*.sln'
+      feedsToUse: 'config'
+      nugetConfigPath: '$(System.DefaultWorkingDirectory)/${{ parameters.baseFolder }}/NuGet.Config'
+      restoreDirectory: '$(System.DefaultWorkingDirectory)/${{ parameters.baseFolder }}/packages'    
 
   - task: VSBuild@1
     inputs:
