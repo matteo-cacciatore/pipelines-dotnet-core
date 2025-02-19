@@ -27,7 +27,7 @@ steps:
   
   - task: Bash@3
     displayName: List all files
-    name: ListAllCurrentDir
+    name: ListAllCurrentDir2
     inputs:
       targetType: inline
       script: |
