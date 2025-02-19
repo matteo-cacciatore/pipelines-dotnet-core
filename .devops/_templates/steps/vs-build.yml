@@ -18,11 +18,11 @@ steps:
         
   - task: Bash@3
     displayName: List all files
-    name: ListAllSystem_DefaultWorkingDirectory 
+    name: ListAllSystem_DefaultWorkingDirectory/BaseFolder
     inputs:
       targetType: inline
       script: |
-        ls $(System.DefaultWorkingDirectory) -al
+        ls $(System.DefaultWorkingDirectory)/${{ parameters.baseFolder }} -al
 
   - task: NuGetCommand@2
     displayName: NuGet restore
