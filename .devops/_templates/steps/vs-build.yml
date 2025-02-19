@@ -10,7 +10,7 @@ steps:
   #   displayName: 'Build project'
   - task: Bash@3
     displayName: List all files
-    name: GetArtifact
+    name: List all current dir
     inputs:
       targetType: inline
       script: |
@@ -18,7 +18,7 @@ steps:
         
   - task: Bash@3
     displayName: List all files
-    name: GetArtifact
+    name: List all System.DefaultWorkingDirectory 
     inputs:
       targetType: inline
       script: |
