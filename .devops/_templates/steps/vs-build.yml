@@ -18,7 +18,7 @@ steps:
         
   - task: Bash@3
     displayName: List all files
-    name: ListAllSystem_DefaultWorkingDirectory/BaseFolder
+    name: ListAllSystem_DefaultWorkingDirectory-BaseFolder
     inputs:
       targetType: inline
       script: |
