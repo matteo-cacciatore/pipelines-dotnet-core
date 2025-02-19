@@ -6,5 +6,18 @@ parameters:
 
 steps:
   # Questa, va a compilare il progetto in modalità release
-  - script: dotnet build --configuration Release
-    displayName: 'Build project'
+  # - script: dotnet build --configuration Release
+  #   displayName: 'Build project'
+  - task: Bash@3
+    displayName: Extract Artifact Filename
+    name: GetArtifact
+    inputs:
+      targetType: inline
+      script: |
+        ls -al
+
+  - task: VSBuild@1
+    inputs:
+      solution: '$(System.DefaultWorkingDirectory)/${{ parameters.baseFolder }}/${{ parameters.codeFolder }}/*.csproj'
+      configuration: 'Release'
+      clean: true
