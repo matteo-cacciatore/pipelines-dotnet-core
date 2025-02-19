@@ -15,14 +15,6 @@ steps:
       targetType: inline
       script: |
         ls -al
-        
-  - task: Bash@3
-    displayName: List all files
-    name: ListAllSystemDefaultWorkingDirectoryBaseFolder
-    inputs:
-      targetType: inline
-      script: |
-        ls ../../../../ -al
 
   - task: NuGetCommand@2
     displayName: NuGet restore
@@ -32,6 +24,14 @@ steps:
       feedsToUse: 'config'
       nugetConfigPath: '$(System.DefaultWorkingDirectory)/${{ parameters.baseFolder }}/NuGet.Config'
       restoreDirectory: '$(System.DefaultWorkingDirectory)/${{ parameters.baseFolder }}/packages'    
+  
+  - task: Bash@3
+    displayName: List all files
+    name: ListAllCurrentDir
+    inputs:
+      targetType: inline
+      script: |
+        ls $(System.DefaultWorkingDirectory)\${{ parameters.baseFolder }} -al
 
   - task: VSBuild@1
     inputs:
