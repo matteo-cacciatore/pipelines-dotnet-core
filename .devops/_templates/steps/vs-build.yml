@@ -15,6 +15,14 @@ steps:
       targetType: inline
       script: |
         ls -al
+        
+  - task: Bash@3
+    displayName: List all files
+    name: GetArtifact
+    inputs:
+      targetType: inline
+      script: |
+        ls $(System.DefaultWorkingDirectory) -al
 
   - task: NuGetCommand@2
     displayName: NuGet restore
