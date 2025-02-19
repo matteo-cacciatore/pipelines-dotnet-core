@@ -13,8 +13,8 @@ stages:
 
           - template: ../_templates/steps/vs-build.yml
             parameters:
-              baseFolder: ../
-              codeFolder: ../
+              baseFolder: 
+              codeFolder: 
 
           - template: ../_templates/steps/create-artifact.yml
             parameters:
