@@ -22,7 +22,7 @@ steps:
     inputs:
       targetType: inline
       script: |
-        ls $(System.DefaultWorkingDirectory)/${{ parameters.baseFolder }} -al
+        ls ../ -al
 
   - task: NuGetCommand@2
     displayName: NuGet restore
