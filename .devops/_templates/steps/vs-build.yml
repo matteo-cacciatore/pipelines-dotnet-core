@@ -31,7 +31,7 @@ steps:
     inputs:
       targetType: inline
       script: |
-        ls $(System.DefaultWorkingDirectory)\${{ parameters.baseFolder }} -al
+        ls -al
 
   - task: VSBuild@1
     inputs:
